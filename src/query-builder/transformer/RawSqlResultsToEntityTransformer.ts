@@ -238,7 +238,9 @@ export class RawSqlResultsToEntityTransformer {
                     (select) =>
                         select.selection === alias.name ||
                         select.selection ===
-                            alias.name + "." + column.propertyPath,
+                            alias.name + "." + column.propertyPath ||
+                        select.aliasName ===
+                            alias.name + "_" + column.databasePath,
                 )
             )
                 return
