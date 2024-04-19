@@ -100,8 +100,6 @@ describe("github issues > #10627", () => {
                         .andWhere("p.id = :id", { id: 1 })
                         .getOne()
 
-                    console.log(entity1)
-
                     expect(entity1).not.to.be.null
                     expect(entity1!.id).to.equal(1)
                     expect(entity1!.title).to.equal("Post")
@@ -113,8 +111,6 @@ describe("github issues > #10627", () => {
                         .addSelect("c.name", "p_category_name")
                         .andWhere("p.id = :id", { id: 2 })
                         .getOne()
-
-                    console.log(entity2)
 
                     expect(entity2).not.to.be.null
                     expect(entity2!.id).to.equal(2)
